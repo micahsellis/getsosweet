@@ -2059,7 +2059,8 @@ li.comment .comment-form > p {
     -webkit-transition: all 240ms;
     -o-transition: all 240ms;
     transition: all 240ms;
-    background: rgb(189, 130, 235);
+    /* background: rgb(133, 104, 180); */
+    /* background: #557fb6; */
     font-size: 1.6rem;
 }
 
@@ -2122,7 +2123,8 @@ li.comment .comment-form > p {
 
 .site-header.sticked {
     position: fixed;
-    background-color: #ffffff;
+    background: rgb(133, 104, 180);
+    /* background: #557fb6; */
 }
 
 .site-header.sticked .header-wrapper {
@@ -2207,7 +2209,7 @@ li.comment .comment-form > p {
 
 .contact-info-wrap,
 .footer-testimonials-wrap {
-    padding-bottom: 48px;
+    padding-bottom: 0px;
 }
 
 .contact-info-wrap {
@@ -2250,7 +2252,7 @@ li.comment .comment-form > p {
     line-height: 22px;
     color: #898989;
     min-height: 64px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .footer-testimonial.has-post-thumbnail {
@@ -2259,7 +2261,7 @@ li.comment .comment-form > p {
 
 .footer-testimonial .entry-thumbnail {
     max-width: 64px;
-    border-radius: 64px;
+    border-radius: 20px;
     position: absolute;
     top: 0;
     left: 0;
@@ -2281,7 +2283,7 @@ li.comment .comment-form > p {
 }
 
 .footer-testimonial .entry-summary {
-    margin-bottom: 18px;
+    margin-bottom: 0px;
 }
 
 .footer-testimonial .entry-summary > :last-child {
@@ -2309,7 +2311,7 @@ li.comment .comment-form > p {
 
 .footer-testimonials-header {
     text-align: left;
-    margin: 0 0 50px;
+    margin: 0 0 0px;
 }
 
 .footer-testimonials-title {
@@ -2323,13 +2325,13 @@ li.comment .comment-form > p {
     font-size: 25.67px;
     line-height: 1.2;
     color: #363636;
-    margin: 5px 0 0;
+    margin: 0px 0 0;
 }
 
 .footer-testimonials .owl-dots {
     margin-left: -18px;
     text-align: left;
-    padding-top: 14px;
+    padding-top: 0px;
     font-size: 0;
 }
 
@@ -2493,13 +2495,14 @@ li.comment .comment-form > p {
     line-height: 1.2;
     margin: 0;
     letter-spacing: 1.8px;
+    font-size: 6rem !important;
 }
 
 @media (min-width:1600px) {
 
     .hero-section .section-subtitle {
         margin: 0px auto 0;
-        font-weight: 400;
+        font-weight: 800;
         max-width: 582px;
     }
 
@@ -2854,7 +2857,7 @@ h6 {
 .section-subtitle,
 .about-description,
 .sec-description {
-    font-size: 2rem;
+    font-size: 2rem !important;
     letter-spacing: 0.75px;
     line-height: 1.6;
 }
@@ -3007,11 +3010,13 @@ h6 {
 
 .about-image-2 .about-image-row-2-small {
     max-width: 37.7%;
+    margin-top: 20px;
+    /* border:rgb(133, 104, 180) */
 }
 
 .about-image-2 .about-image-row-2-big {
     max-width: 62.3%;
-    padding-left: 3.7%;
+    padding-right: 3.7%;
 }
 
 .about-image-2 .text-front {
@@ -3606,9 +3611,9 @@ h6 {
 /*============testimonials-section============*/
 .section.testimonials-section {
     border-bottom: 2px solid #ccc;
-    padding-top: 52px;
-    padding-bottom: 56px;
-    margin-bottom: 40px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .testimonials-section .section-inner {
@@ -3731,6 +3736,7 @@ h6 {
     width: 66%;
     top: 13.7%;
     z-index: 1;
+    border: 10px solid #fff;
 }
 
 .subscribe-contact-section .form-field {
@@ -3932,7 +3938,7 @@ ul.contact-item-social li:last-child .contact-item-flag {
     }
 
     .menu-section .menu-entry-col {
-        margin-bottom: 80px;
+        margin-bottom: 10px;
         padding: 0 15px;
     }
 
@@ -4380,7 +4386,7 @@ ul.contact-item-social li:last-child .contact-item-flag {
     .section-subtitle,
     .about-description,
     .sec-description {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .section-header {
