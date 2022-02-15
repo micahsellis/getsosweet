@@ -2924,6 +2924,7 @@ h6 {
 
     .site-header.sticked .header-wrapper {
         padding: 0px;
+        color: purple !important;
     }
 
     .site-header.sticked .main-navigation {
@@ -2963,7 +2964,7 @@ h6 {
     font-family: 'Baloo Tamma';
     font-style: normal;
     font-weight: 400;
-    color: #363636;
+    color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -2974,7 +2975,7 @@ h6 {
 .main-navigation li a:hover,
 .main-navigation li a:focus,
 .main-navigation li.active a {
-    color: purple
+    color: rgb(255, 183, 0);
 }
 
 .main-navigation.menu-desktop .primary-menu-right li {
