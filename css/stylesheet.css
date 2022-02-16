@@ -545,7 +545,7 @@ a:visited {
 a:active,
 a:focus,
 a:hover {
-    color: purple;
+    color: rgb(133, 104, 180);
 }
 
 a:focus {
@@ -589,8 +589,8 @@ a.back-to-top.active {
 a.back-to-top:focus,
 a.back-to-top:hover {
     color: #fff;
-    background: rgba(188,133,233);
-    border-color: rgba(188,133,233)
+    background: rgb(133, 104, 180);
+    border-color: rgb(133, 104, 180)
 }
 
 @media (min-width:768px) {
@@ -706,7 +706,7 @@ a.back-to-top:hover {
     .site-header.sticked .primary-menu > li > a.active:hover,
     .site-header.sticked .primary-menu > li.active > a:focus,
     .site-header.sticked .primary-menu > li > a.active {
-        color: rgba(188,133,233);
+        color: rgb(133, 104, 180);
     }
 
     .primary-menu > li > a {
@@ -737,7 +737,7 @@ a.back-to-top:hover {
 
     .primary-menu > li:hover > a,
     .primary-menu > li.active > a {
-        color: rgba(188,133,233)
+        color: rgb(133, 104, 180)
     }
 
     .primary-menu > li.active > a:after,
@@ -922,7 +922,7 @@ a.back-to-top:hover {
     .main-navigation .primary-menu li.current_page_item > a,
     .main-navigation .primary-menu li.focus > a,
     .main-navigation .primary-menu li:hover > a {
-        color: rgba(188,133,233);
+        color: rgb(133, 104, 180);
     }
 
     .main-navigation li + li {
@@ -1895,7 +1895,7 @@ li.comment .comment-form > p {
 .widget_pages ul li.current_page_ancestor > a,
 .widget_pages ul li.current_page_item > a,
 .widget_pages ul li.current_page_parent > a {
-    color: rgba(188,133,233);
+    color: rgb(133, 104, 180);
 }
 
 .widget_rss .widget-title a {
@@ -2318,7 +2318,7 @@ li.comment .comment-form > p {
 .footer-testimonials-title {
     font-size: 36px;
     line-height: 1.2;
-    color: rgba(188,133,233);
+    color: rgb(133, 104, 180);
     margin: 0;
 }
 
@@ -2349,7 +2349,7 @@ li.comment .comment-form > p {
 
 .footer-testimonials button.owl-dot.active,
 .footer-testimonials button.owl-dot:hover {
-    background-color: rgba(188,133,233);
+    background-color: rgb(133, 104, 180);
 }
 
 .footer-testimonials button.owl-dot:focus {
@@ -2421,7 +2421,7 @@ li.comment .comment-form > p {
 }
 
 .site-info a:hover {
-    color: rgba(188,133,233);
+    color: rgb(133, 104, 180);
 }
 
 .section {
@@ -2630,7 +2630,7 @@ input[type="datetime-local"]:hover,
 input[type="color"]:hover,
 textarea:hover,
 select:hover {
-    border-color:rgba(188,133,233)
+    border-color:rgb(133, 104, 180)
 }
 
 textarea {
@@ -2692,19 +2692,19 @@ html [type=button]:focus,
 .button:focus,
 .btn:focus,
 .btn-black:focus {
-    background: rgba(188,133,233);
+    background: rgb(133, 104, 180);
     color: #fff;
 }
 
 .hero-section .action-links a:focus,
 .hero-section .action-links a:hover {
-    background: rgba(188,133,233);
+    background: rgb(133, 104, 180);
     color: #fff;
 }
 
 .btn-green,
 .btn.btn-green {
-    background: rgba(188,133,233);
+    background: rgb(133, 104, 180);
     color: #fff;
     border-color: #fff
 }
@@ -2714,7 +2714,7 @@ html [type=button]:focus,
 .btn.btn-green:hover,
 .btn.btn-green:focus {
     background: #fff;
-    color: rgba(188,133,233);
+    color: rgb(133, 104, 180);
 }
 
 select,
@@ -2925,7 +2925,6 @@ h6 {
 
     .site-header.sticked .header-wrapper {
         padding: 0px;
-        color: purple !important;
     }
 
     .site-header.sticked .main-navigation {
@@ -3316,7 +3315,7 @@ h6 {
 .entry-action a.action:focus,
 .entry-action a.action.btn-detail:hover,
 .entry-action a.action.btn-detail:focus {
-    background: rgba(188,133,233)
+    background: rgb(133, 104, 180)
 }
 
 .section.menu-section .menu-entries {
@@ -3491,7 +3490,7 @@ h6 {
 }
 
 .booking-section form input[type=submit] {
-    background: rgba(188,133,233);
+    background: rgb(133, 104, 180);
     color: #fff;
     border-color: #fff;
     width: 100%;
@@ -3500,7 +3499,7 @@ h6 {
 .booking-section form input[type=submit]:hover,
 .booking-section form input[type=submit]:focus {
     background: #fff;
-    color: rgba(188,133,233);
+    color: rgb(133, 104, 180);
 }
 
 .booking-section .section-content-other {
@@ -3511,7 +3510,7 @@ h6 {
 }
 
 .booking-section .section-content-other a {
-    color: rgba(188,133,233)
+    color: rgb(133, 104, 180)
 }
 
 .booking-section .section-content-other a:hover,
@@ -3780,8 +3779,8 @@ h6 {
 
 .subscribe-contact-section .form-field [type=submit]:hover,
 .subscribe-contact-section .form-field [type=submit]:focus {
-    background: rgba(188,133,233);
-    border-color: rgba(188,133,233);
+    background: rgb(133, 104, 180);
+    border-color: rgb(133, 104, 180);
 }
 
 .subscribe-contact-section .subscribe-content {
@@ -3808,7 +3807,7 @@ h6 {
 
 .contact-content .contact-item-details a.mail:hover,
 .contact-content .contact-item-details a.mail:focus {
-    color: rgba(188,133,233);
+    color: rgb(133, 104, 180);
 }
 
 .contact-content .contact-item-details span.contact-item-flag {
