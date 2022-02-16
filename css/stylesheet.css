@@ -264,15 +264,16 @@ h5 {
 table {
     font-size: 14px;
     margin: 0 0 1.5em;
-    width: 100%;
+    width: 30%;
     border-collapse: collapse;
     border-spacing: 0;
 }
 
 td,
 th {
-    border: 1px solid #eee;
+    border: none;
     padding: 10px;
+    text-align: end;
 }
 
 .list-social {
@@ -902,7 +903,7 @@ a.back-to-top:hover {
         opacity: 0;
         padding: 20px;
         margin-top: 20px;
-        background-color: #fff;
+        /* background-color: #fff; */
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         z-index: 99;
@@ -3257,8 +3258,8 @@ h6 {
 }
 
 .section-list-menu {
-    background: #f4dcfc;
-    padding-top: 116px;
+    background: rgb(133, 104, 180);
+    padding-top: 1vh;
     padding-bottom: 0px;
 }
 
@@ -3267,12 +3268,14 @@ h6 {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 .menu-section .entry-thumbnail {
-    -ms-flex: 0 0 35%;
-    flex: 0 0 35%;
-    max-width: 35%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
 }
 
 .menu-section .entry-body {
@@ -3280,7 +3283,8 @@ h6 {
     -ms-flex: 0 0 65%;
     flex: 0 0 65%;
     max-width: 65%;
-    padding-left: 29px;
+    padding-left: 25px;
+    /* color: white; */
 }
 
 .menu-section .entry-body h5 {
@@ -3319,10 +3323,9 @@ h6 {
     margin: 0 -28px;
 }
 
-.menu-section .menu-entry-col {
-    margin-bottom: 100px;
-    padding: 0 28px;
-}
+/* .menu-section .menu-entry-col {
+    margin: 2vh 2vw;
+} */
 
 .menu-section .entry-action a.action.btn-detail {
     float: right;
@@ -3340,10 +3343,17 @@ h6 {
 
 .menu-section .entry-excerpt {
     letter-spacing: 0.8px;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
 }
 
-@media (min-width:1600px) {
+@media (max-width: 800px) {
+    .menu-section .menu-entry {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* @media (min-width:1600px) {
 
     .menu-section .menu-entry-col:nth-child(3n-1),
     .menu-section .menu-entry-col:nth-child(3n) {
@@ -3355,7 +3365,7 @@ h6 {
     .menu-section .menu-entry-col:nth-child(3n) .entry-body {
         padding-left: 44px;
     }
-}
+} */
 
 .menu-load-container {
     margin-top: -9px;
@@ -3924,8 +3934,6 @@ ul.contact-item-social li:last-child .contact-item-flag {
 		font-size: 2.8rem;*/
     }
 
-    .chefs-section .post-head .content {}
-
     .menu-section .entry-thumbnail {
         -ms-flex: 0 0 30%;
         flex: 0 0 30%;
@@ -3938,10 +3946,10 @@ ul.contact-item-social li:last-child .contact-item-flag {
         max-width: 70%;
     }
 
-    .menu-section .menu-entry-col {
+    /* .menu-section .menu-entry-col {
         margin-bottom: 10px;
         padding: 0 15px;
-    }
+    } */
 
     .section.menu-section .menu-entries {
         margin: 0 -15px;
@@ -4007,7 +4015,7 @@ ul.contact-item-social li:last-child .contact-item-flag {
     }
 
     .section-list-menu {
-        padding: 50px 0 0 0;
+        padding: 50px;
     }
 
     .section.menu-section {
