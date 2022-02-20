@@ -3267,8 +3267,8 @@ h6 {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 0vw;
+    padding-right: 0vw;
 }
 
 .menu-section .entry-thumbnail {
