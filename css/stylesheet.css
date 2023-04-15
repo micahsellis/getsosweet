@@ -2695,7 +2695,7 @@ html [type=button]:focus,
 .btn:focus,
 .btn-black:focus {
     background: rgb(133, 104, 180);
-    color: #fff;
+    color: #fff !important;
 }
 
 .hero-section .action-links a:focus,

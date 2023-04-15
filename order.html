@@ -1,0 +1,946 @@
+<script src="https://cdn02.jotfor.ms/static/prototype.forms.js?3.3.41081" type="text/javascript"></script>
+<script src="https://cdn03.jotfor.ms/static/jotform.forms.js?3.3.41081" type="text/javascript"></script>
+<script src="https://cdn01.jotfor.ms/js/vendor/jquery-1.8.0.min.js?v=3.3.41081" type="text/javascript"></script>
+<script defer src="https://cdn02.jotfor.ms/js/vendor/maskedinput.min.js?v=3.3.41081" type="text/javascript"></script>
+<script defer src="https://cdn03.jotfor.ms/js/vendor/jquery.maskedinput.min.js?v=3.3.41081"
+    type="text/javascript"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/punycode/1.4.1/punycode.js"></script>
+<script src="https://cdn01.jotfor.ms/js/payments/minTotalOrderAmountValidation.js?v=3.3.41081"
+    type="text/javascript"></script>
+<script src="https://cdn02.jotfor.ms/js/vendor/math-processor.js?v=3.3.41081" type="text/javascript"></script>
+<script type="text/javascript">	JotForm.newDefaultTheme = false;
+    JotForm.extendsNewTheme = true;
+    JotForm.singleProduct = false;
+    JotForm.newPaymentUIForNewCreatedForms = false;
+    JotForm.newPaymentUI = true;
+
+    JotForm.setCalculations([{ "decimalPlaces": "2", "equation": "[{15}+{3}]", "ignoreHiddenFields": "0", "insertAsText": "0", "newCalculationType": "1", "operands": "15,3", "readOnly": "0", "replaceText": "", "resultField": "21", "showBeforeInput": "0", "showEmptyDecimals": "0", "useCommasForDecimals": "0" }]);
+    JotForm.setConditions([{ "action": [{ "id": "action_1681518990218", "visibility": "Hide", "isError": false, "field": "8" }], "id": "1681519003068", "index": "0", "link": "Any", "priority": "0", "terms": [{ "id": "term_1681518990218", "field": "15", "operator": "equals", "value": "Pick-up - Free", "isError": false }], "type": "field" }, { "action": [{ "id": "action_1681518542282", "field": "8", "visibility": "Require", "isError": false }], "id": "1681518559528", "index": "1", "link": "Any", "priority": "1", "terms": [{ "id": "term_1681518542282", "field": "15", "operator": "equals", "value": "Delivery - $3.99 fee", "isError": false }], "type": "require" }]); JotForm.clearFieldOnHide = "disable";
+    JotForm.submitError = "jumpToFirstError";
+
+    JotForm.init(function () {
+        /*INIT-START*/
+
+        JotForm.calendarMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        JotForm.calendarDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        JotForm.calendarOther = { "today": "Today" };
+        var languageOptions = document.querySelectorAll('#langList li');
+        for (var langIndex = 0; langIndex < languageOptions.length; langIndex++) {
+            languageOptions[langIndex].on('click', function (e) { setTimeout(function () { JotForm.setCalendar("10", false, { "days": { "monday": true, "tuesday": true, "wednesday": true, "thursday": true, "friday": true, "saturday": true, "sunday": true }, "future": true, "past": false, "custom": false, "ranges": false, "start": "", "end": "" }); }, 0); });
+        }
+        JotForm.onTranslationsFetch(function () { JotForm.setCalendar("10", false, { "days": { "monday": true, "tuesday": true, "wednesday": true, "thursday": true, "friday": true, "saturday": true, "sunday": true }, "future": true, "past": false, "custom": false, "ranges": false, "start": "", "end": "" }); });
+        JotForm.formatDate({ date: (new Date()), dateField: $("id_" + 10) });
+        JotForm.displayLocalTime("input_10_hourSelect", "input_10_minuteSelect", "input_10_ampm", "input_10_timeInput", false);
+        productID = { "0": "input_3_1000", "1": "input_3_1002", "2": "input_3_1003", "3": "input_3_1005", "4": "input_3_1006", "5": "input_3_1008" };
+        paymentType = "product";
+        JotForm.setCurrencyFormat('USD', true, 'point');
+        JotForm.totalCounter({ "input_3_1000": { "price": "3.00", "tax": { "rate": "2.9", "surcharge": {} }, "quantityField": "input_3_quantity_1000_0" }, "input_3_1002": { "price": "32.00", "tax": { "rate": "2.9", "surcharge": {} }, "quantityField": "input_3_quantity_1002_0" }, "input_3_1003": { "price": "3.25", "tax": { "rate": "2.9", "surcharge": {} }, "quantityField": "input_3_quantity_1003_0" }, "input_3_1005": { "price": "34.00", "tax": { "rate": "2.9", "surcharge": {} }, "quantityField": "input_3_quantity_1005_0" }, "input_3_1006": { "price": "3.25", "tax": { "rate": "2.9", "surcharge": {} }, "quantityField": "input_3_quantity_1006_0" }, "input_3_1008": { "price": "34.00", "tax": { "rate": "2.9", "surcharge": {} }, "quantityField": "input_3_quantity_1008_0" } });
+        $$('.form-product-custom_quantity').each(function (el, i) { el.observe('blur', function () { isNaN(this.value) || this.value < 1 ? this.value = '0' : this.value = parseInt(this.value) }) });
+        $$('.form-product-custom_quantity').each(function (el, i) { el.observe('focus', function () { this.value == 0 ? this.value = '' : this.value }) });
+        JotForm.handleProductLightbox();
+        if (window.JotForm && JotForm.accessible) $('input_12').setAttribute('tabindex', 0);
+        JotForm.setPhoneMaskingValidator('input_6_full', '(###) ###-####');
+        JotForm.alterTexts(undefined);
+        JotForm.alterTexts({ "couponApply": "Apply", "couponBlank": "Please enter a coupon.", "couponChange": "", "couponEnter": "Enter coupon", "couponExpired": "Coupon is expired. Please try another one.", "couponInvalid": "Coupon is invalid.", "couponValid": "Coupon is valid.", "shippingShipping": "Delivery Fee", "taxTax": "Tax", "totalSubtotal": "Subtotal", "totalTotal": "Total" }, true);
+        /*INIT-END*/
+    });
+
+    JotForm.prepareCalculationsOnTheFly([null, null, null, { "description": "", "name": "products", "qid": "3", "text": "Products", "type": "control_payment" }, { "name": "customerDetails", "qid": "4", "text": "Customer Details", "type": "control_head" }, { "description": "", "name": "name", "qid": "5", "text": "Name", "type": "control_fullname" }, { "description": "", "name": "phoneNumber", "qid": "6", "text": "Phone Number", "type": "control_phone" }, { "description": "", "name": "email", "qid": "7", "subLabel": "example@example.com", "text": "Email", "type": "control_email" }, { "description": "", "name": "deliveryAddress", "qid": "8", "text": "Delivery Address", "type": "control_address" }, { "name": "orderNumber", "qid": "9", "text": "Order Number", "type": "control_autoincrement" }, { "description": "", "name": "when", "qid": "10", "text": "When? please allow time to prepare your order", "type": "control_datetime" }, null, { "description": "", "name": "specialInstructions", "qid": "12", "subLabel": "", "text": "Special Instructions (include any allergies):", "type": "control_textarea" }, { "description": "", "name": "paymentMethod", "qid": "13", "text": "Payment Method", "type": "control_radio" }, null, { "description": "", "name": "how", "qid": "15", "text": "How?", "type": "control_radio" }, { "name": "input16", "qid": "16", "text": "If you have any questions, feel free to text me at (720)336-0584. Otherwise, your order will be ready shortly. Thank you!", "type": "control_text" }, null, { "name": "submit", "qid": "18", "text": "Submit", "type": "control_button" }, { "name": "getSo", "qid": "19", "text": "Get So Sweet", "type": "control_head" }, null, { "description": "", "name": "orderTotal", "qid": "21", "subLabel": "", "text": "Order Total", "type": "control_calculation" }]);
+    setTimeout(function () {
+        JotForm.paymentExtrasOnTheFly([null, null, null, { "description": "", "name": "products", "qid": "3", "text": "Products", "type": "control_payment" }, { "name": "customerDetails", "qid": "4", "text": "Customer Details", "type": "control_head" }, { "description": "", "name": "name", "qid": "5", "text": "Name", "type": "control_fullname" }, { "description": "", "name": "phoneNumber", "qid": "6", "text": "Phone Number", "type": "control_phone" }, { "description": "", "name": "email", "qid": "7", "subLabel": "example@example.com", "text": "Email", "type": "control_email" }, { "description": "", "name": "deliveryAddress", "qid": "8", "text": "Delivery Address", "type": "control_address" }, { "name": "orderNumber", "qid": "9", "text": "Order Number", "type": "control_autoincrement" }, { "description": "", "name": "when", "qid": "10", "text": "When? please allow time to prepare your order", "type": "control_datetime" }, null, { "description": "", "name": "specialInstructions", "qid": "12", "subLabel": "", "text": "Special Instructions (include any allergies):", "type": "control_textarea" }, { "description": "", "name": "paymentMethod", "qid": "13", "text": "Payment Method", "type": "control_radio" }, null, { "description": "", "name": "how", "qid": "15", "text": "How?", "type": "control_radio" }, { "name": "input16", "qid": "16", "text": "If you have any questions, feel free to text me at (720)336-0584. Otherwise, your order will be ready shortly. Thank you!", "type": "control_text" }, null, { "name": "submit", "qid": "18", "text": "Submit", "type": "control_button" }, { "name": "getSo", "qid": "19", "text": "Get So Sweet", "type": "control_head" }, null, { "description": "", "name": "orderTotal", "qid": "21", "subLabel": "", "text": "Order Total", "type": "control_calculation" }]);
+    }, 20); 
+</script>
+<style type="text/css">
+    @media print {
+        .form-section {
+            display: inline !important
+        }
+
+        .form-pagebreak {
+            display: none !important
+        }
+
+        .form-section-closed {
+            height: auto !important
+        }
+
+        .page-section {
+            position: initial !important
+        }
+    }
+</style>
+<link id="custom-font" type="text/css" rel="stylesheet" href="//cdn.jotfor.ms/fonts/?family=Inter" />
+<link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/defaultV2.css?v=45df57e
+" />
+<link type="text/css" rel="stylesheet"
+    href="https://cdn02.jotfor.ms/themes/CSS/64012b8864323209265bec99.css?v=3.3.41081&themeRevisionID=64102f3636353508d014b131" />
+<link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/css/styles/payment/payment_styles.css?3.3.41081" />
+<link type="text/css" rel="stylesheet"
+    href="https://cdn01.jotfor.ms/css/styles/payment/payment_feature.css?3.3.41081" />
+<style type="text/css" id="form-designer-style">
+    /* Injected CSS Code */
+    /*PREFERENCES STYLE*/
+    .form-all {
+        font-family: Inter, sans-serif;
+    }
+
+    .form-label.form-label-auto {
+
+        display: inline-block;
+        float: left;
+        text-align: left;
+
+    }
+
+    .form-line {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .form-all {
+        max-width: 752px;
+        width: 100%;
+    }
+
+    .form-label.form-label-left,
+    .form-label.form-label-right,
+    .form-label.form-label-left.form-label-auto,
+    .form-label.form-label-right.form-label-auto {
+        width: 230px;
+    }
+
+    .form-all {
+        font-size: 16px
+    }
+
+    .supernova .form-all,
+    .form-all {
+        background-color: #fff;
+    }
+
+    .form-all {
+        color: rgb(13, 1, 106);
+    }
+
+    .form-header-group .form-header {
+        color: rgb(13, 1, 106);
+    }
+
+    .form-header-group .form-subHeader {
+        color: rgb(13, 1, 106);
+    }
+
+    .form-label-top,
+    .form-label-left,
+    .form-label-right,
+    .form-html,
+    .form-checkbox-item label,
+    .form-radio-item label,
+    span.FITB .qb-checkbox-label,
+    span.FITB .qb-radiobox-label,
+    span.FITB .form-radio label,
+    span.FITB .form-checkbox label,
+    [data-blotid][data-type=checkbox] [data-labelid],
+    [data-blotid][data-type=radiobox] [data-labelid],
+    span.FITB-inptCont[data-type=checkbox] label,
+    span.FITB-inptCont[data-type=radiobox] label {
+        color: rgb(13, 1, 106);
+    }
+
+    .form-sub-label {
+        color: 1a1a1a;
+    }
+
+    .supernova,
+    .supernova body {
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    .form-textbox,
+    .form-textarea,
+    .form-dropdown,
+    .form-radio-other-input,
+    .form-checkbox-other-input,
+    .form-captcha input,
+    .form-spinner input {
+        background-color: #fff;
+    }
+
+    .supernova {
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center top;
+    }
+
+    .supernova {
+        background-image: url("https://www.jotform.com/uploads/beril/form_files/galaxy-bg-image.6405a140a1b097.18087512.png");
+    }
+
+    #stage {
+        background-image: url("https://www.jotform.com/uploads/beril/form_files/galaxy-bg-image.6405a140a1b097.18087512.png");
+    }
+
+    .form-all {
+        background-image: none;
+    }
+
+    .form-all {
+        position: relative;
+    }
+
+    .form-all:before {
+        content: "";
+        background-image: url("https://www.jotform.com/uploads/micahsellis/form_files/logo.6439e7a37bfa49.30534628.png");
+        display: inline-block;
+        height: 140px;
+        position: absolute;
+        background-size: 350px 140px;
+        background-repeat: no-repeat;
+        width: 100%;
+    }
+
+    .form-all {
+        margin-top: 160px;
+    }
+
+    .form-all:before {
+        top: -150px;
+        background-position: top center;
+        left: 0;
+    }
+
+    /*PREFERENCES STYLE*/
+    /*__INSPECT_SEPERATOR__*/
+    .form-label.form-label-auto {
+
+        display: inline-block;
+        float: left;
+        text-align: left;
+
+    }
+
+    /* Injected CSS Code */
+</style>
+
+<form class="jotform-form" action="https://submit.jotform.com/submit/231037167558156" method="post"
+    name="form_231037167558156" id="231037167558156" accept-charset="utf-8" autocomplete="on"><input type="hidden"
+        name="formID" value="231037167558156" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden"
+        id="cardinalOrderNumber" value="" />
+    <div role="main" class="form-all">
+        <ul class="form-section page-section">
+            <li id="cid_19" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-large">
+                    <div class="header-text httac htvam">
+                        <h1 id="header_19" class="form-header" data-component="header">Get So Sweet</h1>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_radio" id="id_15"><label
+                    class="form-label form-label-left form-label-auto" id="label_15" for="input_15"> How?<span
+                        class="form-required">*</span> </label>
+                <div id="cid_15" class="form-input jf-required" data-layout="full">
+                    <div class="form-single-column" role="group" aria-labelledby="label_15" data-component="radio"><span
+                            class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input
+                                type="radio" aria-describedby="label_15" class="form-radio validate[required]"
+                                id="input_15_0" name="q15_how" value="Delivery - $3.99 fee" data-calcvalue="3.99"
+                                required="" /><label id="label_input_15_0" for="input_15_0">Delivery - $3.99
+                                fee</label></span><span class="form-radio-item" style="clear:left"><span
+                                class="dragger-item"></span><input type="radio" aria-describedby="label_15"
+                                class="form-radio validate[required]" id="input_15_1" name="q15_how"
+                                value="Pick-up - Free" data-calcvalue="0" required="" /><label id="label_input_15_1"
+                                for="input_15_1">Pick-up - Free</label></span></div>
+                </div>
+            </li>
+            <li class="form-line jf-required allowTime" data-type="control_datetime" id="id_10"><label
+                    class="form-label form-label-left form-label-auto" id="label_10" for="lite_mode_10"> When? <span
+                        class="form-required">*</span>
+                    <br>
+                    <div style="font-weight:normal;font-size:small;">*please
+                        allow time to prepare your order</div>
+                </label>
+                <div id="cid_10" class="form-input jf-required" data-layout="full">
+                    <div data-wrapper-react="true" class="extended">
+                        <div style="display:none"><span class="form-sub-label-container"
+                                style="vertical-align:top"><input type="tel"
+                                    class="form-textbox validate[required, disallowPast, limitDate]" id="month_10"
+                                    name="q10_when[month]" size="2" data-maxlength="2" data-age="" maxLength="2"
+                                    value="04" required="" autoComplete="off"
+                                    aria-labelledby="label_10 sublabel_10_month" /><span class="date-separate"
+                                    aria-hidden="true"> /</span><label class="form-sub-label" for="month_10"
+                                    id="sublabel_10_month" style="min-height:13px"
+                                    aria-hidden="false">Month</label></span><span class="form-sub-label-container"
+                                style="vertical-align:top"><input type="tel"
+                                    class="currentDate form-textbox validate[required, disallowPast, limitDate]"
+                                    id="day_10" name="q10_when[day]" size="2" data-maxlength="2" data-age=""
+                                    maxLength="2" value="14" required="" autoComplete="off"
+                                    aria-labelledby="label_10 sublabel_10_day" /><span class="date-separate"
+                                    aria-hidden="true"> /</span><label class="form-sub-label" for="day_10"
+                                    id="sublabel_10_day" style="min-height:13px"
+                                    aria-hidden="false">Day</label></span><span class="form-sub-label-container"
+                                style="vertical-align:top"><input type="tel"
+                                    class="form-textbox validate[required, disallowPast, limitDate]" id="year_10"
+                                    name="q10_when[year]" size="4" data-maxlength="4" data-age="" maxLength="4"
+                                    value="2023" required="" autoComplete="off"
+                                    aria-labelledby="label_10 sublabel_10_year" /><label class="form-sub-label"
+                                    for="year_10" id="sublabel_10_year" style="min-height:13px"
+                                    aria-hidden="false">Year</label></span></div><span class="form-sub-label-container"
+                            style="vertical-align:top"><input type="text"
+                                class="form-textbox validate[required, disallowPast, limitDate, validateLiteDate]"
+                                id="lite_mode_10" size="12" data-maxlength="12" maxLength="12" data-age=""
+                                value="04/14/2023" required="" data-format="mmddyyyy" data-seperator="/"
+                                placeholder="MM/DD/YYYY" autoComplete="off"
+                                aria-labelledby="label_10 sublabel_10_litemode" /><img
+                                class=" newDefaultTheme-dateIcon icon-liteMode" alt="Pick a Date" id="input_10_pick"
+                                src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime"
+                                aria-hidden="true" data-allow-time="Yes" data-version="v2" /><label
+                                class="form-sub-label" for="lite_mode_10" id="sublabel_10_litemode"
+                                style="min-height:13px" aria-hidden="false">Date</label></span><span
+                            class="allowTime-container timeAMPM">
+                            <div data-wrapper-react="true"><span class="form-sub-label-container hasAMPM"
+                                    style="vertical-align:top"><input type="text"
+                                        class="currentTime time-dropdown form-textbox validate[required]"
+                                        id="input_10_timeInput" name="q10_when[timeInput]" required=""
+                                        placeholder="HH : MM" aria-labelledby="label_10 sublabel_10_hour"
+                                        data-mask="hh:MM" value="09:15" data-version="v2" /><input type="hidden"
+                                        class="form-hidden-time" id="input_10_hourSelect" name="q10_when[hour]"
+                                        value="09" /><input type="hidden" class="form-hidden-time"
+                                        id="input_10_minuteSelect" name="q10_when[min]" value="15" /><label
+                                        data-seperate-translate="true" class="form-sub-label" for="input_10_timeInput"
+                                        id="sublabel_10_hour" style="min-height:13px" aria-hidden="false">Time
+                                    </label></span><span class="form-sub-label-container"
+                                    style="vertical-align:top"><select
+                                        class="time-dropdown form-dropdown validate[required]" id="input_10_ampm"
+                                        name="q10_when[ampm]" data-component="time-ampm" required=""
+                                        aria-labelledby="label_10 sublabel_10_ampm">
+                                        <option value="AM">AM</option>
+                                        <option selected="" value="PM">PM</option>
+                                    </select><label class="form-sub-label" for="input_10_ampm" id="sublabel_10_ampm"
+                                        style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap"
+                                        aria-hidden="false">AM/PM Option</label></span></div>
+                        </span>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_payment" id="id_3" data-payment="true"><label
+                    class="form-label form-label-top" id="label_3" for="input_3"> Products </label>
+                <div id="cid_3" class="form-input-wide" data-layout="full">
+                    <div data-wrapper-react="true">
+                        <div data-wrapper-react="true" class="product-container-wrapper">
+                            <div class="filter-container"></div><input type="hidden" name="simple_fpc"
+                                data-payment_type="payment" data-component="payment1" value="3" /><input type="hidden"
+                                name="payment_transaction_uuid" id="paymentTransactionId" /><input type="hidden"
+                                name="payment_total_checksum" id="payment_total_checksum" data-component="payment2" />
+                            <div id="image-overlay" class="overlay-content" style="display:none"><img
+                                    id="current-image" /><span class="lb-prev-button">prev</span><span
+                                    class="lb-next-button">next</span><span class="lb-close-button">( X )</span><span
+                                    class="image-overlay-product-container">
+                                    <ul class="form-overlay-item" pid="1000" hasicon="false" hasimages="true"
+                                        iconvalue="">
+                                        <li class="image-overlay-image"><img loading="lazy"
+                                                src="https://www.jotform.com/uploads/micahsellis/form_files/closeup.jpg" />
+                                        </li>
+                                        <li class="image-overlay-image"><img loading="lazy"
+                                                src="https://www.jotform.com/uploads/micahsellis/form_files/hero2.jpg" />
+                                        </li>
+                                    </ul>
+                                    <ul class="form-overlay-item" pid="1002" hasicon="false" hasimages="true"
+                                        iconvalue="">
+                                        <li class="image-overlay-image"><img loading="lazy"
+                                                src="https://www.jotform.com/uploads/micahsellis/form_files/vday.jpg" />
+                                        </li>
+                                        <li class="image-overlay-image"><img loading="lazy"
+                                                src="https://www.jotform.com/uploads/micahsellis/form_files/closeup.jpg" />
+                                        </li>
+                                        <li class="image-overlay-image"><img loading="lazy"
+                                                src="https://www.jotform.com/uploads/micahsellis/form_files/hero2.jpg" />
+                                        </li>
+                                    </ul>
+                                    <ul class="form-overlay-item" pid="1003" hasicon="false" hasimages="true"
+                                        iconvalue="">
+                                        <li class="image-overlay-image"><img loading="lazy"
+                                                src="https://www.jotform.com/uploads/micahsellis/form_files/whiskey.jpg" />
+                                        </li>
+                                    </ul>
+                                    <ul class="form-overlay-item" pid="1005" hasicon="false" hasimages="true"
+                                        iconvalue="">
+                                        <li class="image-overlay-image"><img loading="lazy"
+                                                src="https://www.jotform.com/uploads/micahsellis/form_files/whiskey.jpg" />
+                                        </li>
+                                    </ul>
+                                    <ul class="form-overlay-item" pid="1006" hasicon="false" hasimages="true"
+                                        iconvalue="">
+                                        <li class="image-overlay-image"><img loading="lazy"
+                                                src="https://www.jotform.com/uploads/micahsellis/form_files/choco.jpg" />
+                                        </li>
+                                    </ul>
+                                    <ul class="form-overlay-item" pid="1008" hasicon="false" hasimages="true"
+                                        iconvalue="">
+                                        <li class="image-overlay-image"><img loading="lazy"
+                                                src="https://www.jotform.com/uploads/micahsellis/form_files/choco.jpg" />
+                                        </li>
+                                    </ul>
+                                </span></div>
+                            <div data-wrapper-react="true"><span
+                                    class="form-product-item hover-product-item  show_image show_desc show_option new_ui"
+                                    categories="non-categorized" pid="1000" aria-labelledby="label_3">
+                                    <div data-wrapper-react="true" class="form-product-item-detail new_ui">
+                                        <div class="p_col">
+                                            <div class="p_checkbox"><input type="checkbox"
+                                                    class="form-checkbox  form-product-input" id="input_3_1000"
+                                                    name="q3_products[][id]" value="1000"
+                                                    aria-label="Select Product: New Orleans Style Pecan Praline" />
+                                                <div class="checked"></div>
+                                                <div class="select_border"></div>
+                                            </div>
+                                        </div>
+                                        <div class="p_image">
+                                            <div class="image_area form-product-image-with-options">
+                                                <div style="position:absolute;width:100%;height:100%"><img role="img"
+                                                        aria-label="New Orleans Style Pecan Praline"
+                                                        alt="New Orleans Style Pecan Praline Product Image"
+                                                        style="width:100%;height:100%;object-fit:cover"
+                                                        src="https://www.jotform.com/uploads/micahsellis/form_files/closeup.jpg"
+                                                        loading="lazy" /></div>
+                                                <div class="image_zoom"></div>
+                                            </div>
+                                        </div>
+                                        <div for="input_3_1000" class="form-product-container"><span
+                                                data-wrapper-react="true">
+                                                <div class="title_description"><span class="form-product-name"
+                                                        id="product-name-input_3_1000">New Orleans Style Pecan
+                                                        Praline</span><span class="form-product-description"
+                                                        id="product-name-description-input_3_1000">our classic New
+                                                        Orleans Style Pecan Pralines.</span></div><span
+                                                    class="form-product-details"><b><span
+                                                            data-wrapper-react="true">$<span
+                                                                id="input_3_1000_price">3.00</span></span></b></span>
+                                            </span><span class="form-sub-label-container"
+                                                style="vertical-align:top"><label class="form-sub-label"
+                                                    for="input_3_quantity_1000_0" style="min-height:13px"
+                                                    aria-hidden="false">Quantity</label><span
+                                                    class="select_cont"><select class="form-dropdown"
+                                                        name="q3_products[special_1000][item_0]"
+                                                        id="input_3_quantity_1000_0" aria-label="Select Quantity">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select></span></span></div>
+                                        <div class="focus_action_button_container"><a class="btn-inline-product-delete">
+                                            </a><a class="btn-inline-product-settings"> </a></div>
+                                    </div>
+                                </span>
+                                <div class="p_item_separator "></div><span
+                                    class="form-product-item hover-product-item  show_image show_desc show_option new_ui"
+                                    categories="non-categorized" pid="1002" aria-labelledby="label_3">
+                                    <div data-wrapper-react="true" class="form-product-item-detail new_ui">
+                                        <div class="p_col">
+                                            <div class="p_checkbox"><input type="checkbox"
+                                                    class="form-checkbox  form-product-input" id="input_3_1002"
+                                                    name="q3_products[][id]" value="1002"
+                                                    aria-label="Select Product: New Orleans Style Pecan Pralines - 12ct" />
+                                                <div class="checked"></div>
+                                                <div class="select_border"></div>
+                                            </div>
+                                        </div>
+                                        <div class="p_image">
+                                            <div class="image_area form-product-image-with-options">
+                                                <div style="position:absolute;width:100%;height:100%"><img role="img"
+                                                        aria-label="New Orleans Style Pecan Pralines - 12ct"
+                                                        alt="New Orleans Style Pecan Pralines - 12ct Product Image"
+                                                        style="width:100%;height:100%;object-fit:cover"
+                                                        src="https://www.jotform.com/uploads/micahsellis/form_files/vday.jpg"
+                                                        loading="lazy" /></div>
+                                                <div class="image_zoom"></div>
+                                            </div>
+                                        </div>
+                                        <div for="input_3_1002" class="form-product-container"><span
+                                                data-wrapper-react="true">
+                                                <div class="title_description"><span class="form-product-name"
+                                                        id="product-name-input_3_1002">New Orleans Style Pecan Pralines
+                                                        - 12ct</span><span class="form-product-description"
+                                                        id="product-name-description-input_3_1002">12 of our classic New
+                                                        Orleans Style Pecan Pralines</span></div><span
+                                                    class="form-product-details"><b><span
+                                                            data-wrapper-react="true">$<span
+                                                                id="input_3_1002_price">32.00</span></span></b></span>
+                                            </span><span class="form-sub-label-container"
+                                                style="vertical-align:top"><label class="form-sub-label"
+                                                    for="input_3_quantity_1002_0" style="min-height:13px"
+                                                    aria-hidden="false">Quantity</label><span
+                                                    class="select_cont"><select class="form-dropdown"
+                                                        name="q3_products[special_1002][item_0]"
+                                                        id="input_3_quantity_1002_0" aria-label="Select Quantity">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select></span></span></div>
+                                        <div class="focus_action_button_container"><a class="btn-inline-product-delete">
+                                            </a><a class="btn-inline-product-settings"> </a></div>
+                                    </div>
+                                </span>
+                                <div class="p_item_separator "></div><span
+                                    class="form-product-item hover-product-item  show_image show_desc show_option new_ui"
+                                    categories="non-categorized" pid="1003" aria-labelledby="label_3">
+                                    <div data-wrapper-react="true" class="form-product-item-detail new_ui">
+                                        <div class="p_col">
+                                            <div class="p_checkbox"><input type="checkbox"
+                                                    class="form-checkbox  form-product-input" id="input_3_1003"
+                                                    name="q3_products[][id]" value="1003"
+                                                    aria-label="Select Product: Whiskey Pecan Pralines" />
+                                                <div class="checked"></div>
+                                                <div class="select_border"></div>
+                                            </div>
+                                        </div>
+                                        <div class="p_image">
+                                            <div class="image_area form-product-image-with-options">
+                                                <div style="position:absolute;width:100%;height:100%"><img role="img"
+                                                        aria-label="Whiskey Pecan Pralines"
+                                                        alt="Whiskey Pecan Pralines Product Image"
+                                                        style="width:100%;height:100%;object-fit:cover"
+                                                        src="https://www.jotform.com/uploads/micahsellis/form_files/whiskey.jpg"
+                                                        loading="lazy" /></div>
+                                                <div class="image_zoom"></div>
+                                            </div>
+                                        </div>
+                                        <div for="input_3_1003" class="form-product-container"><span
+                                                data-wrapper-react="true">
+                                                <div class="title_description"><span class="form-product-name"
+                                                        id="product-name-input_3_1003">Whiskey Pecan
+                                                        Pralines</span><span class="form-product-description"
+                                                        id="product-name-description-input_3_1003">whiskey flavored
+                                                        pecan pralines</span></div><span
+                                                    class="form-product-details"><b><span
+                                                            data-wrapper-react="true">$<span
+                                                                id="input_3_1003_price">3.25</span></span></b></span>
+                                            </span><span class="form-sub-label-container"
+                                                style="vertical-align:top"><label class="form-sub-label"
+                                                    for="input_3_quantity_1003_0" style="min-height:13px"
+                                                    aria-hidden="false">Quantity</label><span
+                                                    class="select_cont"><select class="form-dropdown"
+                                                        name="q3_products[special_1003][item_0]"
+                                                        id="input_3_quantity_1003_0" aria-label="Select Quantity">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select></span></span></div>
+                                        <div class="focus_action_button_container"><a class="btn-inline-product-delete">
+                                            </a><a class="btn-inline-product-settings"> </a></div>
+                                    </div>
+                                </span>
+                                <div class="p_item_separator "></div><span
+                                    class="form-product-item hover-product-item  show_image show_desc show_option new_ui"
+                                    categories="non-categorized" pid="1005" aria-labelledby="label_3">
+                                    <div data-wrapper-react="true" class="form-product-item-detail new_ui">
+                                        <div class="p_col">
+                                            <div class="p_checkbox"><input type="checkbox"
+                                                    class="form-checkbox  form-product-input" id="input_3_1005"
+                                                    name="q3_products[][id]" value="1005"
+                                                    aria-label="Select Product: Whiskey Pecan Pralines" />
+                                                <div class="checked"></div>
+                                                <div class="select_border"></div>
+                                            </div>
+                                        </div>
+                                        <div class="p_image">
+                                            <div class="image_area form-product-image-with-options">
+                                                <div style="position:absolute;width:100%;height:100%"><img role="img"
+                                                        aria-label="Whiskey Pecan Pralines"
+                                                        alt="Whiskey Pecan Pralines Product Image"
+                                                        style="width:100%;height:100%;object-fit:cover"
+                                                        src="https://www.jotform.com/uploads/micahsellis/form_files/whiskey.jpg"
+                                                        loading="lazy" /></div>
+                                                <div class="image_zoom"></div>
+                                            </div>
+                                        </div>
+                                        <div for="input_3_1005" class="form-product-container"><span
+                                                data-wrapper-react="true">
+                                                <div class="title_description"><span class="form-product-name"
+                                                        id="product-name-input_3_1005">Whiskey Pecan
+                                                        Pralines</span><span class="form-product-description"
+                                                        id="product-name-description-input_3_1005">12 of our whiskey
+                                                        flavored pecan pralines</span></div><span
+                                                    class="form-product-details"><b><span
+                                                            data-wrapper-react="true">$<span
+                                                                id="input_3_1005_price">34.00</span></span></b></span>
+                                            </span><span class="form-sub-label-container"
+                                                style="vertical-align:top"><label class="form-sub-label"
+                                                    for="input_3_quantity_1005_0" style="min-height:13px"
+                                                    aria-hidden="false">Quantity</label><span
+                                                    class="select_cont"><select class="form-dropdown"
+                                                        name="q3_products[special_1005][item_0]"
+                                                        id="input_3_quantity_1005_0" aria-label="Select Quantity">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select></span></span></div>
+                                        <div class="focus_action_button_container"><a class="btn-inline-product-delete">
+                                            </a><a class="btn-inline-product-settings"> </a></div>
+                                    </div>
+                                </span>
+                                <div class="p_item_separator "></div><span
+                                    class="form-product-item hover-product-item  show_image show_desc show_option new_ui"
+                                    categories="non-categorized" pid="1006" aria-labelledby="label_3">
+                                    <div data-wrapper-react="true" class="form-product-item-detail new_ui">
+                                        <div class="p_col">
+                                            <div class="p_checkbox"><input type="checkbox"
+                                                    class="form-checkbox  form-product-input" id="input_3_1006"
+                                                    name="q3_products[][id]" value="1006"
+                                                    aria-label="Select Product: Chocolate Pecan Pralines" />
+                                                <div class="checked"></div>
+                                                <div class="select_border"></div>
+                                            </div>
+                                        </div>
+                                        <div class="p_image">
+                                            <div class="image_area form-product-image-with-options">
+                                                <div style="position:absolute;width:100%;height:100%"><img role="img"
+                                                        aria-label="Chocolate Pecan Pralines"
+                                                        alt="Chocolate Pecan Pralines Product Image"
+                                                        style="width:100%;height:100%;object-fit:cover"
+                                                        src="https://www.jotform.com/uploads/micahsellis/form_files/choco.jpg"
+                                                        loading="lazy" /></div>
+                                                <div class="image_zoom"></div>
+                                            </div>
+                                        </div>
+                                        <div for="input_3_1006" class="form-product-container"><span
+                                                data-wrapper-react="true">
+                                                <div class="title_description"><span class="form-product-name"
+                                                        id="product-name-input_3_1006">Chocolate Pecan
+                                                        Pralines</span><span class="form-product-description"
+                                                        id="product-name-description-input_3_1006">chocolate flavored
+                                                        pecan pralines</span></div><span
+                                                    class="form-product-details"><b><span
+                                                            data-wrapper-react="true">$<span
+                                                                id="input_3_1006_price">3.25</span></span></b></span>
+                                            </span><span class="form-sub-label-container"
+                                                style="vertical-align:top"><label class="form-sub-label"
+                                                    for="input_3_quantity_1006_0" style="min-height:13px"
+                                                    aria-hidden="false">Quantity</label><span
+                                                    class="select_cont"><select class="form-dropdown"
+                                                        name="q3_products[special_1006][item_0]"
+                                                        id="input_3_quantity_1006_0" aria-label="Select Quantity">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select></span></span></div>
+                                        <div class="focus_action_button_container"><a class="btn-inline-product-delete">
+                                            </a><a class="btn-inline-product-settings"> </a></div>
+                                    </div>
+                                </span>
+                                <div class="p_item_separator "></div><span
+                                    class="form-product-item hover-product-item  show_image show_desc show_option new_ui"
+                                    categories="non-categorized" pid="1008" aria-labelledby="label_3">
+                                    <div data-wrapper-react="true" class="form-product-item-detail new_ui">
+                                        <div class="p_col">
+                                            <div class="p_checkbox"><input type="checkbox"
+                                                    class="form-checkbox  form-product-input" id="input_3_1008"
+                                                    name="q3_products[][id]" value="1008"
+                                                    aria-label="Select Product: Chocolate Pecan Pralines - 12ct" />
+                                                <div class="checked"></div>
+                                                <div class="select_border"></div>
+                                            </div>
+                                        </div>
+                                        <div class="p_image">
+                                            <div class="image_area form-product-image-with-options">
+                                                <div style="position:absolute;width:100%;height:100%"><img role="img"
+                                                        aria-label="Chocolate Pecan Pralines - 12ct"
+                                                        alt="Chocolate Pecan Pralines - 12ct Product Image"
+                                                        style="width:100%;height:100%;object-fit:cover"
+                                                        src="https://www.jotform.com/uploads/micahsellis/form_files/choco.jpg"
+                                                        loading="lazy" /></div>
+                                                <div class="image_zoom"></div>
+                                            </div>
+                                        </div>
+                                        <div for="input_3_1008" class="form-product-container"><span
+                                                data-wrapper-react="true">
+                                                <div class="title_description"><span class="form-product-name"
+                                                        id="product-name-input_3_1008">Chocolate Pecan Pralines -
+                                                        12ct</span><span class="form-product-description"
+                                                        id="product-name-description-input_3_1008">12 of our chocolate
+                                                        flavored pecan pralines</span></div><span
+                                                    class="form-product-details"><b><span
+                                                            data-wrapper-react="true">$<span
+                                                                id="input_3_1008_price">34.00</span></span></b></span>
+                                            </span><span class="form-sub-label-container"
+                                                style="vertical-align:top"><label class="form-sub-label"
+                                                    for="input_3_quantity_1008_0" style="min-height:13px"
+                                                    aria-hidden="false">Quantity</label><span
+                                                    class="select_cont"><select class="form-dropdown"
+                                                        name="q3_products[special_1008][item_0]"
+                                                        id="input_3_quantity_1008_0" aria-label="Select Quantity">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select></span></span></div>
+                                        <div class="focus_action_button_container"><a class="btn-inline-product-delete">
+                                            </a><a class="btn-inline-product-settings"> </a></div>
+                                    </div>
+                                </span>
+                                <div class="payment_footer new_ui ">
+                                    <div class="total_area"><span class="form-payment-divider"></span>
+                                        <div class="form-payment-subtotal form-payment-label">
+                                            <div id="subtotal-text">Subtotal</div>
+                                            <div class="form-payment-price"><span data-wrapper-react="true">$<span
+                                                        id="payment_subtotal">0.00</span></span></div>
+                                        </div>
+                                        <div class="form-payment-tax form-payment-label">
+                                            <div id="tax-text">Tax</div>
+                                            <div class="form-payment-price"><span data-wrapper-react="true">$<span
+                                                        id="payment_tax">0.00</span></span></div>
+                                        </div>
+                                        <div class="form-payment-total">
+                                            <div id="total-text">Total</div>
+                                            <div class="form-payment-price"><span data-wrapper-react="true">$<span
+                                                        id="payment_total">0.00</span></span></div>
+                                        </div><input type="hidden" name="minTotalOrderAmount" data-min-amount="10"
+                                            value="10" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_radio" id="id_13"><label
+                    class="form-label form-label-left form-label-auto" id="label_13" for="input_13"> Payment Method<span
+                        class="form-required">*</span> </label>
+                <div id="cid_13" class="form-input jf-required" data-layout="full">
+                    <div class="form-multiple-column" data-columncount="2" role="group" aria-labelledby="label_13"
+                        data-component="radio"><span class="form-radio-item"><span class="dragger-item"></span><input
+                                type="radio" aria-describedby="label_13" class="form-radio validate[required]"
+                                id="input_13_0" name="q13_paymentMethod" value="Cash" required="" /><label
+                                id="label_input_13_0" for="input_13_0">Cash</label></span><span
+                            class="form-radio-item"><span class="dragger-item"></span><input type="radio"
+                                aria-describedby="label_13" class="form-radio validate[required]" id="input_13_1"
+                                name="q13_paymentMethod" value="Credit Card" required="" /><label id="label_input_13_1"
+                                for="input_13_1">Credit Card</label></span><span class="form-radio-item"
+                            style="clear:left"><span class="dragger-item"></span><input type="radio"
+                                aria-describedby="label_13" class="form-radio validate[required]" id="input_13_2"
+                                name="q13_paymentMethod" value="Venmo" required="" /><label id="label_input_13_2"
+                                for="input_13_2">Venmo</label></span><span class="form-radio-item"><span
+                                class="dragger-item"></span><input type="radio" aria-describedby="label_13"
+                                class="form-radio validate[required]" id="input_13_3" name="q13_paymentMethod"
+                                value="Cashapp" required="" /><label id="label_input_13_3"
+                                for="input_13_3">Cashapp</label></span><span class="form-radio-item"
+                            style="clear:left"><span class="dragger-item"></span><input type="radio"
+                                aria-describedby="label_13" class="form-radio validate[required]" id="input_13_4"
+                                name="q13_paymentMethod" value="Zelle" required="" /><label id="label_input_13_4"
+                                for="input_13_4">Zelle</label></span></div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textarea" id="id_12"><label
+                    class="form-label form-label-left form-label-auto" id="label_12" for="input_12"> Special
+                    Instructions (include any allergies): </label>
+                <div id="cid_12" class="form-input" data-layout="full"> <textarea id="input_12" class="form-textarea"
+                        name="q12_specialInstructions" style="width:648px;height:163px" data-component="textarea"
+                        aria-labelledby="label_12"></textarea> </div>
+            </li>
+            <li id="cid_4" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-default">
+                    <div class="header-text httal htvam">
+                        <h2 id="header_4" class="form-header" data-component="header">Customer Details</h2>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_fullname" id="id_5"><label
+                    class="form-label form-label-left form-label-auto" id="label_5" for="first_5"> Name<span
+                        class="form-required">*</span> </label>
+                <div id="cid_5" class="form-input jf-required" data-layout="full">
+                    <div data-wrapper-react="true"><span class="form-sub-label-container" style="vertical-align:top"
+                            data-input-type="first"><input type="text" id="first_5" name="q5_name[first]"
+                                class="form-textbox validate[required]" data-defaultvalue=""
+                                autoComplete="section-input_5 given-name" size="10" value="" data-component="first"
+                                aria-labelledby="label_5 sublabel_5_first" required="" /><label class="form-sub-label"
+                                for="first_5" id="sublabel_5_first" style="min-height:13px" aria-hidden="false">First
+                                Name</label></span><span class="form-sub-label-container" style="vertical-align:top"
+                            data-input-type="last"><input type="text" id="last_5" name="q5_name[last]"
+                                class="form-textbox validate[required]" data-defaultvalue=""
+                                autoComplete="section-input_5 family-name" size="15" value="" data-component="last"
+                                aria-labelledby="label_5 sublabel_5_last" required="" /><label class="form-sub-label"
+                                for="last_5" id="sublabel_5_last" style="min-height:13px" aria-hidden="false">Last
+                                Name</label></span></div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_phone" id="id_6"><label
+                    class="form-label form-label-left form-label-auto" id="label_6" for="input_6_full"> Phone
+                    Number<span class="form-required">*</span> </label>
+                <div id="cid_6" class="form-input jf-required" data-layout="half"> <span
+                        class="form-sub-label-container" style="vertical-align:top"><input type="tel" id="input_6_full"
+                            name="q6_phoneNumber[full]" data-type="mask-number"
+                            class="mask-phone-number form-textbox validate[required, Fill Mask]" data-defaultvalue=""
+                            autoComplete="section-input_6 tel-national" style="width:310px" data-masked="true" value=""
+                            placeholder="(000) 000-0000" data-component="phone" aria-labelledby="label_6"
+                            required="" /></span> </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_email" id="id_7"><label
+                    class="form-label form-label-left form-label-auto" id="label_7" for="input_7"> Email<span
+                        class="form-required">*</span> </label>
+                <div id="cid_7" class="form-input jf-required" data-layout="half"> <span
+                        class="form-sub-label-container" style="vertical-align:top"><input type="email" id="input_7"
+                            name="q7_email" class="form-textbox validate[required, Email]" data-defaultvalue=""
+                            style="width:310px" size="310" value="" data-component="email"
+                            aria-labelledby="label_7 sublabel_input_7" required="" /><label class="form-sub-label"
+                            for="input_7" id="sublabel_input_7" style="min-height:13px"
+                            aria-hidden="false">example@example.com</label></span> </div>
+            </li>
+            <li class="form-line form-field-hidden" style="display:none;" data-type="control_address" id="id_8"
+                data-compound-hint=",,,,Please Select,,Please Select,"><label
+                    class="form-label form-label-left form-label-auto" id="label_8" for="input_8_addr_line1"> Delivery
+                    Address </label>
+                <div id="cid_8" class="form-input" data-layout="full">
+                    <div summary="" class="form-address-table jsTest-addressField">
+                        <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span
+                                class="form-address-line form-address-street-line jsTest-address-lineField"><span
+                                    class="form-sub-label-container" style="vertical-align:top"><input type="text"
+                                        id="input_8_addr_line1" name="q8_deliveryAddress[addr_line1]"
+                                        class="form-textbox form-address-line" data-defaultvalue=""
+                                        autoComplete="section-input_8 address-line1" value=""
+                                        data-component="address_line_1" aria-labelledby="label_8 sublabel_8_addr_line1"
+                                        required="" /><label class="form-sub-label" for="input_8_addr_line1"
+                                        id="sublabel_8_addr_line1" style="min-height:13px" aria-hidden="false">Street
+                                        Address</label></span></span></div>
+                        <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span
+                                class="form-address-line form-address-street-line jsTest-address-lineField"><span
+                                    class="form-sub-label-container" style="vertical-align:top"><input type="text"
+                                        id="input_8_addr_line2" name="q8_deliveryAddress[addr_line2]"
+                                        class="form-textbox form-address-line" data-defaultvalue=""
+                                        autoComplete="section-input_8 address-line2" value=""
+                                        data-component="address_line_2"
+                                        aria-labelledby="label_8 sublabel_8_addr_line2" /><label class="form-sub-label"
+                                        for="input_8_addr_line2" id="sublabel_8_addr_line2" style="min-height:13px"
+                                        aria-hidden="false">Street Address Line 2</label></span></span></div>
+                        <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span
+                                class="form-address-line form-address-city-line jsTest-address-lineField "><span
+                                    class="form-sub-label-container" style="vertical-align:top"><input type="text"
+                                        id="input_8_city" name="q8_deliveryAddress[city]"
+                                        class="form-textbox form-address-city" data-defaultvalue=""
+                                        autoComplete="section-input_8 address-level2" value="" data-component="city"
+                                        aria-labelledby="label_8 sublabel_8_city" required="" /><label
+                                        class="form-sub-label" for="input_8_city" id="sublabel_8_city"
+                                        style="min-height:13px" aria-hidden="false">City</label></span></span><span
+                                class="form-address-line form-address-state-line jsTest-address-lineField "><span
+                                    class="form-sub-label-container" style="vertical-align:top"><input type="text"
+                                        id="input_8_state" name="q8_deliveryAddress[state]"
+                                        class="form-textbox form-address-state" data-defaultvalue=""
+                                        autoComplete="section-input_8 address-level1" value="" data-component="state"
+                                        aria-labelledby="label_8 sublabel_8_state" required="" /><label
+                                        class="form-sub-label" for="input_8_state" id="sublabel_8_state"
+                                        style="min-height:13px" aria-hidden="false">State /
+                                        Province</label></span></span></div>
+                        <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span
+                                class="form-address-line form-address-zip-line jsTest-address-lineField "><span
+                                    class="form-sub-label-container" style="vertical-align:top"><input type="text"
+                                        id="input_8_postal" name="q8_deliveryAddress[postal]"
+                                        class="form-textbox form-address-postal" data-defaultvalue=""
+                                        autoComplete="section-input_8 postal-code" value="" data-component="zip"
+                                        aria-labelledby="label_8 sublabel_8_postal" required="" /><label
+                                        class="form-sub-label" for="input_8_postal" id="sublabel_8_postal"
+                                        style="min-height:13px" aria-hidden="false">Postal / Zip
+                                        Code</label></span></span></div>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_calculation" id="id_21"><label
+                    class="form-label form-label-left form-label-auto" id="label_21" for="input_21"
+                    style="font-weight:900;"> Order Total <br> <span style="font-weight:500;font-size:small"> including
+                        taxes and fees</span>
+                </label>
+                <div id="cid_21" class="form-input" data-layout="half"> <input type="text" data-component="calculation"
+                        data-defaultvalue="0" class="form-textbox" readonly="readonly" data-type="input-textbox"
+                        id="input_21" name="q21_orderTotal" value="0" size="10"
+                        style="text-align:center;font-weight:bolder;font-size:xx-large;color:red;border:none;" /> </div>
+            </li>
+            <li class="form-line" data-type="control_text" id="id_16">
+                <div id="cid_16" class="form-input-wide" data-layout="full">
+                    <div id="text_16" class="form-html" data-component="text" tabindex="0">
+                        <p>If you have any questions, feel free to text me at <a href="7203360584" target="_blank"
+                                rel="nofollow">(720)336-0584</a>. Otherwise, your order will be ready shortly. Thank
+                            you!</p>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_button" id="id_18">
+                <div id="cid_18" class="form-input-wide" data-layout="full">
+                    <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+                        <button id="input_18" type="submit"
+                            class="form-submit-button form-submit-button-green-400 submit-button jf-form-buttons jsTest-submitField"
+                            data-component="button" data-content="">Submit</button>
+                    </div>
+                </div>
+            </li>
+            <li style="display:none">Should be Empty: <input type="text" name="website" value="" /></li>
+        </ul>
+    </div>
+    <script>
+        JotForm.showJotFormPowered = "new_footer";
+    </script>
+    <script>
+        JotForm.poweredByText = "Powered by Jotform";
+    </script><input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="231037167558156" />
+    <script type="text/javascript">
+        var all_spc = document.querySelectorAll("form[id='231037167558156'] .si" + "mple" + "_spc");
+        for (var i = 0; i < all_spc.length; i++) {
+            all_spc[i].value = "231037167558156-231037167558156";
+        }
+    </script>
+    <div class="formFooter-heightMask"></div>
+    <div class="formFooter f6 branding21">
+        <div class="formFooter-wrapper formFooter-leftSide"><a
+                href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=231037167558156&utm_content=jotform_logo&utm_campaign=powered_by_jotform_le"
+                target="_blank" class="formFooter-logoLink"><img class="formFooter-logo"
+                    src="https://cdn.jotfor.ms/assets/img/logo2021/jotform-logo-white.svg" alt="Jotform Logo"
+                    style="height: 44px;"></a></div>
+        <div class="formFooter-wrapper formFooter-rightSide"><span class="formFooter-text">Now create your own Jotform -
+                It's free!</span><a class="formFooter-button"
+                href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=231037167558156&utm_content=jotform_button&utm_campaign=powered_by_jotform_le"
+                target="_blank">Create your own Jotform</a></div>
+    </div><input type="hidden" id="input_9" name="q9_orderNumber" class="form-textbox form-hidden" data-defaultvalue="0"
+        value="0" data-component="autoincrement" />
+</form>
+<script type="text/javascript">JotForm.ownerView = true;</script>
+<script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.41081"></script>
+<script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.41081"></script>
